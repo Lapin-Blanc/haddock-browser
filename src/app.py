@@ -8,6 +8,7 @@ from PySide6.QtWidgets import (
     QLineEdit,
     QMainWindow,
     QPushButton,
+    QStyle,
     QVBoxLayout,
     QWidget,
 )
@@ -46,6 +47,12 @@ class MainWindow(QMainWindow):
         self.reload_button = QPushButton("Recharger")
         self.go_button = QPushButton("Aller")
         self.web_view = QWebEngineView()
+
+        style = self.style()
+        self.back_button.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_ArrowBack))
+        self.forward_button.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_ArrowForward))
+        self.reload_button.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_BrowserReload))
+        self.go_button.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_CommandLink))
 
         # Layout top bar
         top_bar = QHBoxLayout()
