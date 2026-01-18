@@ -36,5 +36,5 @@ Voir `docs/VERSIONING.md` pour la strategie de versions, le workflow Git complet
 - **v0** : pre-version interne (non publiee).
 - **v1** : barre d'adresse, bouton Aller, affichage de la page chargee.
 - **v2** : boutons retour / avance / recharger + barre d'adresse synchronisee.
-- **v3** : onglets, uniquement si le besoin pedagogique est etabli.
+- **v3** : bouton Parametres + page d'accueil configurable + bouton Accueil.
 - **v4** : favoris limites aux cas d'apprentissage utiles.

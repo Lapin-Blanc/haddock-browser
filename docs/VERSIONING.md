@@ -14,7 +14,7 @@
 - v0 : pre-version interne
 - v1 : bases de navigation
 - v2 : navigation avancee
-- v3 : onglets
+- v3 : parametres et page d'accueil
 - v4 : favoris
 
 ## Workflow Git complet (exemple)
