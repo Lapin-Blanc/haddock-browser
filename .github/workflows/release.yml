@@ -16,13 +16,21 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          fetch-tags: true
+
+      - name: Fetch tags explicitly
+        shell: pwsh
+        run: |
+          git fetch --force --tags
 
       - name: Verify annotated tag
         shell: pwsh
         run: |
-          $tagType = (git cat-file -t "$env:GITHUB_REF_NAME" 2>$null)
+          $tagRef = "refs/tags/$env:GITHUB_REF_NAME"
+          $tagType = (git cat-file -t $tagRef 2>$null)
           if ($tagType -ne "tag") {
             Write-Error "Le tag doit etre annote (git tag -a). Type detecte: $tagType"
+            exit 1
           }
 
       - name: Setup Python
@@ -40,6 +48,7 @@ jobs:
         run: |
           if (-not (Test-Path dist)) {
             Write-Error "Dossier dist introuvable."
+            exit 1
           }
           Compress-Archive -Path dist\* -DestinationPath "dist-$env:GITHUB_REF_NAME.zip" -Force
 
