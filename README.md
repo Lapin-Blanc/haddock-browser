@@ -29,6 +29,9 @@ pip install -r requirements.txt
 python src/app.py
 ```
 
+## Versioning et releases
+Voir `docs/VERSIONING.md` pour la strategie de versions, le workflow Git complet et les releases GitHub.
+
 ## Roadmap pedagogique (v0 -> v4)
 - **v0** : barre d'adresse, bouton Aller, affichage de la page chargee.
 - **v1** : boutons retour / avance / recharger + barre d'adresse synchronisee.
