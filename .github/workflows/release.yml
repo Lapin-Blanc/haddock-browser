@@ -46,12 +46,16 @@ jobs:
       - name: Package dist
         shell: pwsh
         run: |
-          $distDir = "dist\\haddock-browser.dist"
-          if (-not (Test-Path $distDir)) {
-            Write-Error "Dossier dist introuvable: $distDir"
+          if (-not (Test-Path dist)) {
+            Write-Error "Dossier dist introuvable."
             exit 1
           }
-          Compress-Archive -Path "$distDir\\*" -DestinationPath "haddock-browser-$env:GITHUB_REF_NAME.zip" -Force
+          $distDir = Get-ChildItem -Path dist -Directory -Filter "*.dist" | Select-Object -First 1
+          if (-not $distDir) {
+            Write-Error "Aucun dossier .dist trouve dans dist."
+            exit 1
+          }
+          Compress-Archive -Path "$($distDir.FullName)\\*" -DestinationPath "haddock-browser-$env:GITHUB_REF_NAME.zip" -Force
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
