@@ -50,12 +50,15 @@ jobs:
             Write-Error "Dossier dist introuvable."
             exit 1
           }
-          $distDir = Get-ChildItem -Path dist -Directory -Filter "*.dist" | Select-Object -First 1
+          $distDir = "dist\\app.dist"
+          if (-not (Test-Path $distDir)) {
+            $distDir = (Get-ChildItem -Path dist -Directory -Filter "*.dist" | Select-Object -First 1).FullName
+          }
           if (-not $distDir) {
             Write-Error "Aucun dossier .dist trouve dans dist."
             exit 1
           }
-          Compress-Archive -Path "$($distDir.FullName)\\*" -DestinationPath "haddock-browser-$env:GITHUB_REF_NAME.zip" -Force
+          Compress-Archive -Path "$distDir\\*" -DestinationPath "haddock-browser-$env:GITHUB_REF_NAME.zip" -Force
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
