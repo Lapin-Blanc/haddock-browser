@@ -14,7 +14,6 @@ try {
 
     python -m nuitka `
         --standalone `
-        --onefile `
         --enable-plugin=pyside6 `
         --lto=yes `
         --assume-yes-for-downloads `
@@ -22,6 +21,7 @@ try {
         --windows-icon-from-ico="$iconPath" `
         --remove-output `
         --output-dir=dist `
+        --output-filename="haddock-browser.exe" `
         src\app.py
 }
 finally {

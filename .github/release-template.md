@@ -1,13 +1,10 @@
 # Notes de version
 
-## Nouveautes (fonctionnelles)
+## Points cles
 - 
 
-## Ce que l'apprenant doit observer/comprendre
+## Pour l'apprenant
 - 
 
-## Limitations volontaires
-- 
-
-## Notes techniques (build, dependances)
+## Limites assumees
 - 

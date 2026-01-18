@@ -32,5 +32,5 @@ git push origin v0.1.0
 
 ## Releases et artefacts
 Une release GitHub est creee automatiquement a chaque tag `vX.Y.Z`.
-Le workflow CI/CD construit l'executable Windows via `build-scripts/build-win.ps1` et attache un zip a la release.
-Le mode onefile reste volumineux avec Qt WebEngine, mais il garantit un livrable unique et simple pour les eleves.
+Le workflow CI/CD construit un standalone Windows via `build-scripts/build-win.ps1` et attache un zip a la release.
+Le standalone (dossier `.dist`) est plus lourd qu'un binaire simple, mais reste facile a distribuer aux eleves.
