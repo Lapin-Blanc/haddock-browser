@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify annotated tag
+        shell: pwsh
+        run: |
+          $tagType = (git cat-file -t "$env:GITHUB_REF_NAME" 2>$null)
+          if ($tagType -ne "tag") {
+            Write-Error "Le tag doit etre annote (git tag -a). Type detecte: $tagType"
+          }
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build Windows artifact
+        shell: pwsh
+        run: |
+          ./build-scripts/build-win.ps1
+
+      - name: Package dist
+        shell: pwsh
+        run: |
+          if (-not (Test-Path dist)) {
+            Write-Error "Dossier dist introuvable."
+          }
+          Compress-Archive -Path dist\* -DestinationPath "dist-$env:GITHUB_REF_NAME.zip" -Force
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: .github/release-template.md
+          files: dist-*.zip

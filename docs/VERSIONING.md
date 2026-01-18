@@ -31,5 +31,6 @@ git push origin v0.1.0
 ```
 
 ## Releases et artefacts
-Les executables (zip standalone) seront attaches manuellement aux Releases GitHub.
-Le mode onefile reste volumineux avec Qt WebEngine, on l'evite tant que possible.
+Une release GitHub est creee automatiquement a chaque tag `vX.Y.Z`.
+Le workflow CI/CD construit l'executable Windows via `build-scripts/build-win.ps1` et attache un zip a la release.
+Le mode onefile reste volumineux avec Qt WebEngine, mais il garantit un livrable unique et simple pour les eleves.
