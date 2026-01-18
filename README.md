@@ -1,6 +1,6 @@
 # Navigateur Haddock
 
-Navigateur web pedagogique minimaliste developpe en Python (PyQt6). Chaque version introduit uniquement les mecanismes indispensables, afin d'accompagner un public senior qui decouvre Internet sans surcharge fonctionnelle.
+Navigateur web pedagogique minimaliste developpe en Python (PySide6). Chaque version introduit uniquement les mecanismes indispensables, afin d'accompagner un public senior qui decouvre Internet sans surcharge fonctionnelle.
 
 ## Objectif
 Offrir un support concret pour expliquer le Web par iterations courtes : la barre d'adresse, la navigation, puis quelques notions optionnelles quand elles servent un scenario d'apprentissage precis.
@@ -10,7 +10,7 @@ Offrir un support concret pour expliquer le Web par iterations courtes : la barr
 - Formateurs qui veulent montrer les briques de base d'un navigateur sans distraire avec des options modernes.
 
 ## Installation
-Prerequis : Python 3.11+ et les dependances PyQt6 / PyQt6-WebEngine.
+Prerequis : Python 3.11+ et la dependance PySide6 (QtWebEngine integre).
 
 ```bash
 python -m venv .venv

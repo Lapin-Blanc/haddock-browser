@@ -16,7 +16,7 @@ Proposer un navigateur pedagogique qui introduit les usagers aux notions du Web 
 - Progression explicite : une fonctionnalite = une intention pedagogique clairement documentee.
 
 ## Cadre technique
-- Python 3.11+, PyQt6 et PyQt6-WebEngine (QWebEngineView).
+- Python 3.11+ et PySide6 (QtWebEngine via QWebEngineView).
 - Pas de collecte de donnees ni de telemetry.
 - Pas d'extensions de style navigateur moderne (comptes, synchronisation, etc.).
 

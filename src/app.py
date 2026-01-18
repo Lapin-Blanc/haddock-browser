@@ -1,8 +1,8 @@
 import sys
 from urllib.parse import urlparse
 
-from PyQt6.QtCore import QUrl
-from PyQt6.QtWidgets import (
+from PySide6.QtCore import QUrl
+from PySide6.QtWidgets import (
     QApplication,
     QHBoxLayout,
     QLineEdit,
@@ -11,7 +11,7 @@ from PyQt6.QtWidgets import (
     QVBoxLayout,
     QWidget,
 )
-from PyQt6.QtWebEngineWidgets import QWebEngineView
+from PySide6.QtWebEngineWidgets import QWebEngineView
 
 
 def normalize_url(text: str) -> QUrl:
