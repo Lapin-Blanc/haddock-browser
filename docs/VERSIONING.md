@@ -11,9 +11,9 @@
 - La version suit SemVer, mais le rythme est guide par les paliers pedagogiques.
 
 ## Roadmap pedagogique (titres)
-- v0 : bases de navigation
-- v1 : navigation avancee
-- v2 : accueil et historique
+- v0 : pre-version interne
+- v1 : bases de navigation
+- v2 : navigation avancee
 - v3 : onglets
 - v4 : favoris
 
